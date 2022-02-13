@@ -33,7 +33,7 @@ namespace mcvtable.SDK
         /// <summary>
         /// Set your player position
         /// </summary>
-        public void setPos(int[] pos)
+        public void setPos(float[] pos)
         {
             int offset = MCVTable.thePlayer.getOffset("PositionX").OffsetAddr;
             UIntPtr AABBAddress = address + offset;
