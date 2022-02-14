@@ -4,6 +4,9 @@ using System.Windows.Forms;
 
 namespace mcvtable.Input
 {
+    /// <summary>
+    /// Keyboard Input handler
+    /// </summary>
     class Keyboard
     {
         /// <summary>
@@ -20,7 +23,7 @@ namespace mcvtable.Input
         }
 
         /// <summary>
-        /// Send custom keyboard action
+        /// Send custom keyboard action when focused
         /// </summary>
         public static bool sendActionFocused(KeyboardFlags keyFlag)
         {

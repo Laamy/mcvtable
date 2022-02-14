@@ -8,11 +8,17 @@ using System.Threading.Tasks;
 
 namespace mcvtable.Input
 {
+    /// <summary>
+    /// Mouse Input handler
+    /// </summary>
     class Mouse
     {
         [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
-        public static extern void mouse_event(long dwFlags, long dx, long dy, long cButtons, long dwExtraInfo);
+        static extern void mouse_event(long dwFlags, long dx, long dy, long cButtons, long dwExtraInfo);
 
+        /// <summary>
+        /// Mouse flags
+        /// </summary>
         [Flags]
         public enum MouseFlags
         {
@@ -21,6 +27,9 @@ namespace mcvtable.Input
             CopyBlock = 0x20,
         }
 
+        /// <summary>
+        /// Send custom mouse action when focused
+        /// </summary>
         public static bool sendActionFocused(MouseFlags keyFlag)
         {
             if (MCM.isGameFocused())
@@ -31,6 +40,9 @@ namespace mcvtable.Input
             return false;
         }
 
+        /// <summary>
+        /// Send custom mouse action
+        /// </summary>
         public static void sendAction(MouseFlags keyFlag)
         {
             switch (keyFlag)
