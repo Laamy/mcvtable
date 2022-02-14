@@ -60,6 +60,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Input\Mouse.cs" />
     <Compile Include="MCVTable.cs" />
     <Compile Include="Memory\MCM.cs" />
     <Compile Include="Memory\SigScanner.cs" />
