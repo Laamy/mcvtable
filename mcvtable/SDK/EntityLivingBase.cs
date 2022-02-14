@@ -32,6 +32,7 @@ namespace mcvtable.SDK
 
         /// <summary>
         /// Set your player position
+        ///  (Requirements: thePlayer.PositionX)
         /// </summary>
         public void setPos(float[] pos)
         {
@@ -48,7 +49,8 @@ namespace mcvtable.SDK
         }
 
         /// <summary>
-        /// Set your player position
+        /// get your player position
+        ///  (Requirements: thePlayer.PositionX)
         /// </summary>
         public float[] getPos()
         {
@@ -60,6 +62,24 @@ namespace mcvtable.SDK
             pos[0] = MCM.readFloat((ulong)AABBAddress + 0x0);
             pos[1] = MCM.readFloat((ulong)AABBAddress + 0x4);
             pos[2] = MCM.readFloat((ulong)AABBAddress + 0x8);
+
+            return pos;
+        }
+
+        /// <summary>
+        /// get your player old position
+        ///  (Requirements: thePlayer.PositionX)
+        /// </summary>
+        public float[] getOldPos()
+        {
+            int offset = MCVTable.thePlayer.getOffset("PositionX").OffsetAddr;
+            UIntPtr AABBAddress = address + offset;
+
+            float[] pos = new float[] { 0, 0, 0 };
+
+            pos[0] = MCM.readFloat((ulong)AABBAddress + 0xC);
+            pos[1] = MCM.readFloat((ulong)AABBAddress + 0x14);
+            pos[2] = MCM.readFloat((ulong)AABBAddress + 0x10);
 
             return pos;
         }
