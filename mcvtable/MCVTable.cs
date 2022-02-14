@@ -21,5 +21,7 @@ namespace mcvtable
             MCM.openWindowHost("ApplicationFrameHost", "Minecraft");
             MCM.openGame("Minecraft.Windows");
         }
+        // v1.18.10
+        // PositionX - 0x4B8
     }
 }

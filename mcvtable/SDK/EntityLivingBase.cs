@@ -83,5 +83,68 @@ namespace mcvtable.SDK
 
             return pos;
         }
+
+        /// <summary>
+        /// Set your player directional rotations
+        ///  (Requirements: thePlayer.CameraYaw)
+        /// </summary>
+        public void setRots(float[] rots)
+        {
+            int offset = MCVTable.thePlayer.getOffset("CameraYaw").OffsetAddr;
+            UIntPtr RotsAddress = address + offset;
+
+            MCM.writeFloat((ulong)RotsAddress + 0x0, rots[0]);
+            MCM.writeFloat((ulong)RotsAddress + 0x4, rots[1]);
+        }
+
+        /// <summary>
+        /// get your player runtime id
+        ///  (Requirements: thePlayer.RuntimeID)
+        /// </summary>
+        public UIntPtr getRuntimeID()
+        {
+            int offset = MCVTable.thePlayer.getOffset("RuntimeID").OffsetAddr;
+            UIntPtr AABBAddress = address + offset;
+
+            UIntPtr ID = (UIntPtr)0;
+
+            ID = (UIntPtr)MCM.readInt64((ulong)AABBAddress);
+
+            return ID;
+        }
+
+        /// <summary>
+        /// get your player rotations
+        ///  (Requirements: thePlayer.CameraYaw)
+        /// </summary>
+        public float[] getRots()
+        {
+            int offset = MCVTable.thePlayer.getOffset("CameraYaw").OffsetAddr;
+            UIntPtr RotsAddress = address + offset;
+
+            float[] rots = new float[] { 0, 0 };
+
+            rots[0] = MCM.readFloat((ulong)RotsAddress + 0x0);
+            rots[1] = MCM.readFloat((ulong)RotsAddress + 0x4);
+
+            return rots;
+        }
+
+        /// <summary>
+        /// get your player prev rotations
+        ///  (Requirements: thePlayer.CameraYaw)
+        /// </summary>
+        public float[] getPrevRots()
+        {
+            int offset = MCVTable.thePlayer.getOffset("CameraYaw").OffsetAddr;
+            UIntPtr RotsAddress = address + offset;
+
+            float[] rots = new float[] { 0, 0 };
+
+            rots[0] = MCM.readFloat((ulong)RotsAddress + 0x8);
+            rots[1] = MCM.readFloat((ulong)RotsAddress + 0xC);
+
+            return rots;
+        }
     }
 }
