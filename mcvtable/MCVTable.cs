@@ -8,6 +8,9 @@ namespace mcvtable
     /// </summary>
     public class MCVTable
     {
+        /// <summary>
+        /// LocalPlayer OffsetList
+        /// </summary>
         public static OffsetList thePlayer = new OffsetList();
 
         /// <summary>
