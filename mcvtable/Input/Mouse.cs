@@ -25,24 +25,7 @@ namespace mcvtable.Input
         {
             if (MCM.isGameFocused())
             {
-                switch (keyFlag)
-                {
-                    case MouseFlags.Hit:
-                        mouse_event(0x02, 0, 0, 0, 0);
-                        mouse_event(0x04, 0, 0, 0, 0);
-                        break;
-                    case MouseFlags.Place:
-                        mouse_event(0x08, 0, 0, 0, 0);
-                        mouse_event(0x10, 0, 0, 0, 0);
-                        break;
-                    case MouseFlags.CopyBlock:
-                        mouse_event(0x20, 0, 0, 0, 0);
-                        mouse_event(0x40, 0, 0, 0, 0);
-                        break;
-                    default:
-                        throw new Exception("Invalid MouseFlags");
-                        break;
-                }
+                sendAction(keyFlag);
                 return true;
             }
             return false;
@@ -66,7 +49,6 @@ namespace mcvtable.Input
                     break;
                 default:
                     throw new Exception("Invalid MouseFlags");
-                    break;
             }
         }
     }
