@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace mcvtable.Memory
 {
-    internal class MCM
+    public class MCM
     {
         private static string mainProcName = "";
 
